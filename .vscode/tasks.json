@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build all files",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+           "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-I",
+                "${workspaceFolder}/src/include",
+                "${workspaceFolder}/src/main.cpp",
+                "-o",
+                "${workspaceFolder}/bin/main.exe",
+                "-lgdi32",
+                "-lwlanapi",
+                "-lbthprops",
+                "-lole32",
+                "-lgdiplus"
+            ],
+            "options": {
+                "cwd": "C:\\msys64\\ucrt64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compila todos los archivos fuente en src y enlaza con las bibliotecas necesarias"
+        }
+    ]
+}
