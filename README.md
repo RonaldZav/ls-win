@@ -1,43 +1,46 @@
-# LS FOR WINDOWS (SCRIPT)
-The `ls.bat` script is an implementation of the Linux `ls` command for Windows. It uses `PowerShell` to list files and directories with a formatted output in columns and colors, similar to `ls` on Unix systems.
+# LS FOR WINDOWS (C++)
+El `ls-win` es una implementación del comando `ls` de Linux para Windows, desarrollado en C++.
+Permite listar archivos y directorios con una salida formateada en columnas y con colores, similar a `ls` en sistemas Unix.
 
-## 🧰 Features
-- Displays files and folders in multiple columns.
-- Applies colors to elements based on their type:
-  - **Folders** → Blue
-  - **Executables** (`.exe`, `.msi`, `.bat`, `.cmd`, `.jar`) → Green
-  - **Regular files** → White
-- Sorts files by name.
-- Allows listing hidden files with the `-a` option.
+## 🧪 Características
+- Muestra archivos y carpetas en múltiples columnas.
+- Aplica colores a los elementos según su tipo:
+  - **Carpetas** → Azul
+  - **Ejecutables** (`.exe`, `.msi`, `.bat`, `.cmd`, `.jar`) → Verde
+  - **Archivos regulares** → Blanco
+- Ordena los archivos por nombre.
+- Permite listar archivos ocultos con la opción `-a`.
 
-## 🔩 Installation
-1. Copy the code into a file named `ls.bat`.
-2. Save the file in a folder that is included in the `PATH` environment variable (e.g., `C:\Windows` or `C:\Users\YourUser\bin`).
-3. Open a `cmd` window and use the `ls` command.
+## 🔧 Instalación
+1. Compila el código fuente usando MinGW:
+   ```sh
+   g++ -o ls src/main.cpp -mwindows -lgdi32 -lwlanapi -lbthprops -lole32 -lgdiplus
+   ```
+2. Copia el ejecutable `ls-win.exe` a una carpeta incluida en la variable de entorno `PATH` (por ejemplo, `C:\Windows` o `C:\Users\TuUsuario\bin`).
+3. Asegúrate de que las bibliotecas necesarias (`libgcc_s_seh-1.dll`, `libstdc++-6.dll`, `libwinpthread-1.dll`) estén disponibles en la misma carpeta que el ejecutable o en el `PATH`.
 
-## 👤 Usage
-Run the script in the command line:
+## 👤 Uso
+Ejecuta el comando en la línea de comandos (`cmd` o `PowerShell`):
 
-### List files in the current directory
+### Listar archivos en el directorio actual
 ```cmd
 ls
 ```
 
-### List files in a specific directory
+### Listar archivos en un directorio específico
 ```cmd
-ls C:\Users\myUser\Downloads
+ls C:\Users\miUsuario\Downloads
 ```
 
-### Show hidden files
+### Mostrar archivos ocultos
 ```cmd
 ls -a
 ```
 
-## Screenshot
+## Captura de pantalla
 ![Screenshot](https://raw.githubusercontent.com/RonaldZav/ls-win/refs/heads/main/demo.png)
 
-## Notes
-- Make sure `PowerShell` is enabled on your system.
-- If the output looks unorganized, try adjusting the number of columns by modifying the `$columns` value.
-- The script is designed for `cmd`, but it can also be executed directly in `PowerShell`.
-
+## Notas
+- Asegúrate de que las bibliotecas necesarias estén disponibles en tu sistema.
+- Si la salida no se ve organizada, ajusta el número de columnas en el código fuente.
+- El programa está diseñado para ejecutarse en `cmd`, pero también funciona en `PowerShell`.
