@@ -33,6 +33,9 @@ ls C:\Users\myUser\Downloads
 ls -a
 ```
 
+## Screenshot
+![Screenshot](https://raw.githubusercontent.com/RonaldZav/ls-win/refs/heads/main/demo.png)
+
 ## Notes
 - Make sure `PowerShell` is enabled on your system.
 - If the output looks unorganized, try adjusting the number of columns by modifying the `$columns` value.
